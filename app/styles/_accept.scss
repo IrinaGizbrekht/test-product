@@ -1,0 +1,67 @@
+.accept {
+  min-height: 100px;
+  padding: 28px 20px 0;
+  margin: 0 auto;
+}
+
+.accept__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.accept__item {
+  padding: 0 24px;
+}
+
+.accept__logo {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat 0 0;
+
+  &--mastercard {
+    width: 37px;
+    height: 29px;
+    background-position: 0 0;
+  }
+
+  &--visa {
+    width: 47px;
+    height: 15px;
+    background-position: 0 -36px;
+  }
+
+  &--paypal {
+    width: 53px;
+    height: 16px;
+    background-position: 0 -60px;
+  }
+
+  &--discover {
+    width: 57px;
+    height: 34px;
+    background-position: 0 -83px;
+  }
+
+  &--ae {
+    width: 60px;
+    height: 38px;
+    background-position: 0 -122px;
+  }
+}
+
+@media (max-width: $bp-md) {
+
+  .accept {
+    padding: 0;
+    min-height: 90px;
+  }
+
+  .accept__list {
+    margin: 0 -9px;
+  }
+
+  .accept__item {
+    padding: 0 9px;
+  }
+}

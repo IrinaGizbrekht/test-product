@@ -1,0 +1,101 @@
+.header {
+  width: 100%;
+  height: $height-header;
+  background-color: $bg-footer-header;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+
+  @extend %width-global-wrapper;
+}
+
+.header__logo {
+  width: 50%;
+}
+
+.header__logo-link {
+  display: inline-block;
+  height: 100%;
+  padding-top: $height-header/2 - $height-logo/2;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 200;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__logo-image {
+  @extend %logotyp;
+}
+
+.header__shop {
+  width: 50%;
+  line-height: 17px;
+  text-align: right;
+}
+
+.header__shop-button {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 200;
+  background-color: inherit;
+  border-color: inherit;
+  transition: all .2s ease-out;
+
+  &:hover {
+    background-color: #3581d5;
+    cursor: pointer;
+  }
+}
+
+.header__shop-text {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  color: #fff;
+  font-size: 14px;
+
+  &--icon {
+    padding-left: 22px;
+  }
+
+  &--icon:before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../images/sprite.png) no-repeat 0 -278px;
+  }
+}
+
+@media (max-width: $bp-lg) {
+
+  .header__wrapper {
+    justify-content: space-between;
+    height: 100%;
+    max-width: none;
+    margin: auto;
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: $bp-md) {
+
+  .header__wrapper {
+    padding: 0 30px;
+  }
+}

@@ -1,0 +1,32 @@
+html.overlay {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: $font;
+  background-color: $bg;
+
+  .overlay & {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.content {
+  padding-top: $height-header;
+
+  @extend %width-global-wrapper;
+}
+
+
+@media (max-width: $bp-md) {
+
+  .content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

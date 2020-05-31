@@ -1,0 +1,72 @@
+%logotyp {
+  display: inline-block;
+  vertical-align: top;
+  width: 115px;
+  height: 20px;
+  background: url("../images/logo.svg") no-repeat 0 0;
+  background-size: cover;
+}
+
+%width-global-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+
+  @media (max-width:$bp-xl) {
+    max-width: 930px;
+  }
+
+  @media (max-width:$bp-lg) {
+    max-width: 690px;
+  }
+}
+
+%width-inner-wrapper {
+  max-width: 730px;
+  margin: 0 auto;
+
+  @media (max-width:$bp-xl) {
+    max-width: 610px;
+  }
+
+  @media (max-width:$bp-lg) {
+    max-width: 690px;
+  }
+}
+
+%button {
+  background-color: $bg-color-button;
+  color: #ffffff;
+  transition: all .2s ease-out;
+  border-color: $bg-color-button;
+
+  &:hover,
+  &:active {
+    background-color: $bg-color-button-hover;
+    border-color: $bg-color-button-hover;
+  }
+}
+
+%button-white {
+  background-color: $bg-color-button-white;
+  color: $bg-color-button;
+  transition: all .2s ease-out;
+  border-color: $bg-color-button;
+
+  &:hover,
+  &:active {
+    color: #fff;
+    border-color: $bg-color-button-white-hover;
+    background-color: $bg-color-button-white-hover;
+  }
+}
+
+%button-disable {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+
+  &:hover,
+  &:active {
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+  }
+}

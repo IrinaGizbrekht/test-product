@@ -1,0 +1,41 @@
+footer.footer
+
+    .footer__wrapper
+
+        .footer__logo
+            a.footer__logo-link(href='/')
+                span.footer__logo-image
+
+        .footer__subscribe.subscribe
+
+            p.subscribe__title
+                | Sign up for news and special offers
+
+            form.subscribe__form(
+                action=''
+            )
+
+                .subscribe__block-input
+
+                    input.subscribe__input(placeholder='user@email.com')
+
+                    button.subscribe__button(type='submit') Sign Up
+
+                label.subscribe__label(for="privacyCheck")
+                    
+                    input.subscribe__input-checkbox(
+                        type='checkbox'
+                        name='privacy'
+                        id='privacyCheck'
+                    )
+                    
+                    span.subscribe__checkbox
+                    
+                    span.subscribe__text
+                        | By signing up, you consent to receive our marketing emails and agree to Lorem using your personal data in accordance with our 
+                        a.subscribe__text-link(href='#')
+                            | Privacy Policy.
+                        | You also confirm that you meet the 
+                        a.subscribe__text-link(href='#')
+                            | minimum age requirements.
+
