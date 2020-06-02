@@ -112,12 +112,12 @@ export class Cart {
 
   getTemplate (data, price) {
     if (data) {
-      return '<li class="shopcart__item" data-id="' + data.id + '" data-price="' + price + '">' +
-              '<img class="shopcart__item-image" src=' + data.image + ' alt="" />' +
-              '<span class="shopcart__item-title">' + data.name + '</span>' +
-              '<span class="shopcart__item-price">' + price + 'руб.</span>' +
-              '<span class="shopcart__item-delete js-shopcart-item-delete">Delete</span>' +
-            '</li>';
+      return `<li class="shopcart__item" data-id="${data.id}" data-price="${price}">
+        <img class="shopcart__item-image" src="${data.image}" alt="" />
+        <span class="shopcart__item-title">${data.name}</span>
+        <span class="shopcart__item-price">${price}руб.</span>
+        <span class="shopcart__item-delete js-shopcart-item-delete">Delete</span>
+      </li>`;
     } else {
       return null;
     }
