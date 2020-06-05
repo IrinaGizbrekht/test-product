@@ -1,8 +1,6 @@
-import { Storage } from './storage';
+import Storage from './storage';
 
-const storage = new Storage();
-
-export class Cart {
+export default class Cart {
   constructor () {
     // default value
     this.config = {
@@ -28,7 +26,7 @@ export class Cart {
     this.onBuyNowButton = this.onBuyNowButton.bind(this);
     this.onDeleteButton = this.onDeleteButton.bind(this);
     this.onDeleteAllButton = this.onDeleteAllButton.bind(this);
-    this.updateCart = this.updateCart.bind(this);
+    // this.updateCart = this.updateCart.bind(this);
   }
 
   init (config = {}) {
@@ -64,7 +62,7 @@ export class Cart {
   addProduct (product) {
     const data = this.getData(product.dataset.product);
     const isAdd = this.getData(product.dataset.isAdd);
-    this.isBestTime = storage.getLocalStorage(this.config.storage.isBestTime);
+    this.isBestTime = Storage.getLocalStorage(this.config.storage.isBestTime);
     const currPrice = this.isBestTime === 'true' ? data.price : data.oldPrice;
     const template = this.getTemplate(data, currPrice);
     const nameStorage = this.config.storage.button + product.id;
@@ -76,7 +74,7 @@ export class Cart {
       this.addEvents();
       this.changeTotal(currPrice, true);
       this.toogleEmptyCart();
-      storage.setLocalStorage(nameStorage, product.id);
+      Storage.setLocalStorage(nameStorage, product.id);
     }
   }
 
@@ -95,7 +93,7 @@ export class Cart {
     product.parentElement.remove();
 
     if (isDeleteStorage) {
-      storage.deleteLocalStorade(nameStorage);
+      Storage.deleteLocalStorade(nameStorage);
     }
 
     this.bind();
@@ -161,7 +159,7 @@ export class Cart {
     this.buyNowButtons.forEach(item => {
       const name = this.config.storage.button + item.id;
 
-      if (storage.checkLocalStorage(name)) {
+      if (Storage.checkLocalStorage(name)) {
         this.addProduct(item);
       }
     });

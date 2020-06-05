@@ -1,8 +1,6 @@
-import { Storage } from './storage';
+import Storage from './storage';
 
-const storage = new Storage();
-
-export class Timer {
+export default class Timer {
   constructor () {
     // default value
     this.config = {
@@ -35,11 +33,11 @@ export class Timer {
     this.timerContainer = document.querySelector(this.config.timerContainer);
     this.timerValue = document.querySelector(this.config.timerValue);
 
-    this.isBestTime = storage.getLocalStorage(this.config.storage.isBestTime);
+    this.isBestTime = Storage.getLocalStorage(this.config.storage.isBestTime);
     this.timer = process.env.NODE_ENV === 'development' ? this.config.timer.dev : this.config.timer.prod;
 
     if (!this.isBestTime || this.isBestTime === 'true') {
-      storage.setLocalStorage(this.config.storage.isBestTime, true);
+      Storage.setLocalStorage(this.config.storage.isBestTime, true);
       this.startTimer();
     } else {
       // change content
@@ -54,8 +52,8 @@ export class Timer {
     let deadlineFromStorage; // type ms
     let currDeadline; // type ms
 
-    if (storage.checkLocalStorage(this.config.storage.deadline)) {
-      deadlineFromStorage = Number(storage.getLocalStorage(this.config.storage.deadline));
+    if (Storage.checkLocalStorage(this.config.storage.deadline)) {
+      deadlineFromStorage = Number(Storage.getLocalStorage(this.config.storage.deadline));
       deadline = new Date(deadlineFromStorage);
     } else {
       deadline = new Date();
@@ -69,13 +67,13 @@ export class Timer {
       this.timerValue.innerHTML = ' ' + time.minutes + ':' + time.seconds;
 
       currDeadline = currDeadline - second;
-      storage.setLocalStorage(this.config.storage.deadline, currDeadline);
+      Storage.setLocalStorage(this.config.storage.deadline, currDeadline);
 
       if (time.total <= 0) {
         clearInterval(timeinterval);
-        storage.setLocalStorage(this.config.storage.isBestTime, false);
+        Storage.setLocalStorage(this.config.storage.isBestTime, false);
         // clear storage
-        storage.deleteLocalStorade(this.config.storage.deadline);
+        Storage.deleteLocalStorade(this.config.storage.deadline);
         alert('Время скидок закончилось!');
         // change content
         this.changeContent();

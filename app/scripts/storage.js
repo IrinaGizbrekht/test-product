@@ -1,17 +1,17 @@
-export class Storage {
-  checkLocalStorage (name) {
+export default class Storage {
+  static checkLocalStorage (name) {
     return Boolean(this.getLocalStorage(name));
   }
 
-  setLocalStorage (name, value) {
+  static setLocalStorage (name, value) {
     localStorage.setItem(name, value);
   }
 
-  getLocalStorage (name) {
+  static getLocalStorage (name) {
     return localStorage.getItem(name);
   }
 
-  deleteLocalStorade (name) {
+  static deleteLocalStorade (name) {
     localStorage.removeItem(name);
   }
 }
